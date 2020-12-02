@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-text slot="start">Score : {{score}}</ion-text>
+    <ion-icon slot="end" name="heart" *ngFor="let life of lifes"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="question">
+  <ion-text>
+    <h1>{{question.title}}</h1>
+  </ion-text>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar *ngIf="!check">
+    <ion-button slot="start" color="success" expand="full" (click)="checkResponse(true)">Vrai</ion-button>
+    <ion-button slot="end" color="danger" expand="full" (click)="checkResponse(false)">Faux</ion-button>
+  </ion-toolbar>
+  <ion-toolbar *ngIf="check">
+    <ion-button color="primary" expand="block">Suivante</ion-button>
+  </ion-toolbar>
+</ion-footer>
